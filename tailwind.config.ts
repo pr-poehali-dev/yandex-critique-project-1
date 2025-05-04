@@ -53,6 +53,11 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        poop: {
+          light: "#C8962E",
+          DEFAULT: "#A16207",
+          dark: "#7C4B05",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -77,8 +82,10 @@ const config = {
           '50%': { filter: 'brightness(1.2)' },
         },
         float: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-10px)' },
+          '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+          '25%': { transform: 'translateY(-15px) rotate(5deg)' },
+          '50%': { transform: 'translateY(-7px) rotate(0deg)' },
+          '75%': { transform: 'translateY(-10px) rotate(-5deg)' },
         }
       },
       animation: {
@@ -86,7 +93,7 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "glow": "glow 2s ease-in-out infinite",
-        "float": "float 6s ease-in-out infinite",
+        "float": "float 8s ease-in-out infinite",
       },
     },
   },

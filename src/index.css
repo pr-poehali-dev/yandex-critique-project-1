@@ -5,25 +5,25 @@
 
 @layer base {
   :root {
-    --background: 20 14.3% 4.1%;
-    --foreground: 0 0% 95%;
-    --card: 24 9.8% 10%;
-    --card-foreground: 0 0% 95%;
-    --popover: 0 0% 9%;
-    --popover-foreground: 0 0% 95%;
-    --primary: 47 95% 50%;  /* Желтое свечение */
-    --primary-foreground: 26 83.3% 14.1%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 12 6.5% 15.1%;
-    --muted-foreground: 24 5.4% 63.9%;
-    --accent: 12 6.5% 15.1%;
-    --accent-foreground: 60 9.1% 97.8%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 85.7% 97.3%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 47 95% 50%;  /* Желтое свечение */
+    --background: 36 48% 11%;
+    --foreground: 36 100% 90%;
+    --card: 36 52% 12%;
+    --card-foreground: 36 100% 90%;
+    --popover: 36 52% 12%;
+    --popover-foreground: 36 100% 90%;
+    --primary: 36 90% 45%;
+    --primary-foreground: 36 10% 15%;
+    --secondary: 36 30% 20%;
+    --secondary-foreground: 36 100% 90%;
+    --muted: 36 20% 20%;
+    --muted-foreground: 36 40% 70%;
+    --accent: 36 35% 25%;
+    --accent-foreground: 36 100% 90%;
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 36 100% 90%;
+    --border: 36 40% 30%;
+    --input: 36 40% 30%;
+    --ring: 36 90% 45%;
   }
 }
 
@@ -43,14 +43,33 @@
   100% { filter: brightness(0.8); }
 }
 
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg); 
+  }
+  25% { 
+    transform: translateY(-15px) rotate(5deg); 
+  }
+  50% { 
+    transform: translateY(-7px) rotate(0deg); 
+  }
+  75% { 
+    transform: translateY(-10px) rotate(-5deg); 
+  }
+}
+
 .glow-animation {
   animation: glow 2s ease-in-out infinite;
 }
 
+.float-animation {
+  animation: float 8s ease-in-out infinite;
+}
+
 .text-glow {
-  text-shadow: 0 0 15px theme('colors.yellow.400');
+  text-shadow: 0 0 15px theme('colors.amber.400');
 }
 
 .box-glow {
-  box-shadow: 0 0 20px 5px theme('colors.yellow.500');
+  box-shadow: 0 0 20px 5px theme('colors.amber.500');
 }

@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import Icon from '@/components/ui/icon';
 
 const Index = () => {
   const [glowIntensity, setGlowIntensity] = useState(1);
@@ -19,12 +20,12 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-950 p-4 overflow-hidden relative">
-      {/* Фоновые светящиеся элементы */}
-      {Array.from({ length: 20 }).map((_, i) => (
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-amber-950 to-gray-950 p-4 overflow-hidden relative">
+      {/* Фоновые светящиеся элементы имитирующие "говно" */}
+      {Array.from({ length: 30 }).map((_, i) => (
         <div 
           key={i}
-          className="absolute rounded-full bg-yellow-500/30 blur-3xl animate-pulse"
+          className="absolute rounded-full animate-pulse"
           style={{
             width: `${30 + Math.random() * 100}px`,
             height: `${30 + Math.random() * 100}px`,
@@ -34,31 +35,48 @@ const Index = () => {
             animationDelay: `${Math.random() * 5}s`,
             animationDuration: `${3 + Math.random() * 7}s`,
             filter: `blur(${10 + Math.random() * 20}px)`,
-            background: `radial-gradient(circle, rgba(253,224,71,0.8) 0%, rgba(234,179,8,0.5) 70%, rgba(161,98,7,0.2) 100%)`,
+            background: `radial-gradient(circle, rgba(${200 + Math.random() * 55},${150 + Math.random() * 50},${20 + Math.random() * 40},0.8) 0%, rgba(${120 + Math.random() * 50},${80 + Math.random() * 30},${10 + Math.random() * 20},0.5) 70%, rgba(${80 + Math.random() * 30},${50 + Math.random() * 20},${0 + Math.random() * 10},0.2) 100%)`,
           }}
         />
       ))}
       
-      <Card className="w-full max-w-3xl relative bg-black/70 border-yellow-500/50 overflow-hidden">
-        {/* Светящаяся рамка */}
+      <Card className="w-full max-w-3xl relative overflow-hidden" 
+        style={{
+          background: 'rgba(40, 26, 5, 0.8)',
+          borderColor: 'rgba(161, 98, 7, 0.6)'
+        }}>
+        {/* Светящаяся рамка - имитирует свечение */}
         <div 
-          className="absolute inset-0 border-4 border-yellow-400 rounded-lg pointer-events-none"
+          className="absolute inset-0 border-4 rounded-lg pointer-events-none"
           style={{
-            boxShadow: `0 0 ${15 * glowIntensity}px ${5 * glowIntensity}px rgba(234, 179, 8, ${0.6 * glowIntensity})`,
+            borderColor: 'rgba(200, 142, 30, 0.7)',
+            boxShadow: `0 0 ${20 * glowIntensity}px ${8 * glowIntensity}px rgba(200, 142, 30, ${0.6 * glowIntensity})`,
             filter: `brightness(${glowIntensity})`,
           }}
         />
         
         <div className="p-6 z-10 relative">
-          <h1 className="text-4xl font-bold mb-6 text-center text-yellow-400" 
-            style={{
-              textShadow: `0 0 ${15 * glowIntensity}px rgba(234, 179, 8, ${0.8 * glowIntensity})`,
-              filter: `brightness(${glowIntensity})`,
-            }}>
-            ЯНДЕКС ЭТО ГОВНО
-          </h1>
+          <div className="flex justify-center items-center mb-6 gap-3">
+            <Icon name="Poop" size={48} className="text-amber-500" 
+              style={{
+                filter: `drop-shadow(0 0 ${8 * glowIntensity}px rgba(200, 142, 30, ${0.8 * glowIntensity}))`
+              }}
+            />
+            <h1 className="text-5xl font-bold text-center text-amber-500" 
+              style={{
+                textShadow: `0 0 ${15 * glowIntensity}px rgba(200, 142, 30, ${0.8 * glowIntensity})`,
+                filter: `brightness(${glowIntensity})`,
+              }}>
+              ЯНДЕКС ЭТО ГОВНО
+            </h1>
+            <Icon name="Poop" size={48} className="text-amber-500"
+              style={{
+                filter: `drop-shadow(0 0 ${8 * glowIntensity}px rgba(200, 142, 30, ${0.8 * glowIntensity}))`
+              }}
+            />
+          </div>
           
-          <div className="text-yellow-100 space-y-4 text-lg leading-relaxed">
+          <div className="text-amber-200 space-y-4 text-lg leading-relaxed">
             <p>
               Яндекс это говно, потому что не потому, а просто говно убогое! Убогая поисковая система не дающая вам и вашему бизнесу никакого шанса!
             </p>
@@ -84,17 +102,49 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="mt-8 flex justify-center">
+          <div className="mt-8 flex justify-center gap-4">
             <Button 
-              className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-4 rounded-lg"
+              className="font-bold py-2 px-4 rounded-lg"
               style={{
-                boxShadow: `0 0 ${10 * glowIntensity}px ${5 * glowIntensity}px rgba(234, 179, 8, ${0.6 * glowIntensity})`,
+                background: 'linear-gradient(to right, rgba(220, 170, 30, 0.9), rgba(180, 130, 20, 0.9))',
+                color: '#000',
+                boxShadow: `0 0 ${10 * glowIntensity}px ${5 * glowIntensity}px rgba(200, 142, 30, ${0.6 * glowIntensity})`,
                 filter: `brightness(${glowIntensity})`,
               }}>
+              <Icon name="Poop" className="mr-2" />
               Больше правды о Яндексе
+            </Button>
+            <Button 
+              className="font-bold py-2 px-4 rounded-lg"
+              style={{
+                background: 'linear-gradient(to right, rgba(190, 140, 30, 0.9), rgba(150, 100, 20, 0.9))',
+                color: '#000',
+                boxShadow: `0 0 ${10 * glowIntensity}px ${5 * glowIntensity}px rgba(200, 142, 30, ${0.6 * glowIntensity})`,
+                filter: `brightness(${glowIntensity})`,
+              }}>
+              <Icon name="Share2" className="mr-2" />
+              Поделиться
             </Button>
           </div>
         </div>
+        
+        {/* Плавающие частицы внутри карточки */}
+        {Array.from({ length: 10 }).map((_, i) => (
+          <div 
+            key={`float-${i}`}
+            className="absolute rounded-full animate-float pointer-events-none"
+            style={{
+              width: `${5 + Math.random() * 15}px`,
+              height: `${5 + Math.random() * 15}px`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              opacity: 0.3 + Math.random() * 0.4,
+              animationDelay: `${Math.random() * 5}s`,
+              background: `radial-gradient(circle, rgba(${200 + Math.random() * 55},${150 + Math.random() * 50},${20 + Math.random() * 40},0.8) 0%, rgba(${120 + Math.random() * 50},${80 + Math.random() * 30},${10 + Math.random() * 20},0.5) 100%)`,
+              filter: `blur(${1 + Math.random() * 2}px)`,
+            }}
+          />
+        ))}
       </Card>
     </div>
   );
